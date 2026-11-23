@@ -46,3 +46,29 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
  
 
+name: Deploy React App
+permissions:
+  contents: write
+on: 
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code
+        uses: actions/checkout@v7
+      - name: Install Node v24
+        uses: actions/setup-node@v7 
+        with:
+          node-version: '24'
+      - name: Install 
+        run: npm install
+      - name: Build 
+        run: npm run build
+      - name: Deploy 
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
