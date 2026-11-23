@@ -1,27 +1,26 @@
-name: Test React App
+name: Deploy React App
+permissions:
+  contents: write
 on: 
-  pull_request:
-    types: 
-      - opened
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - 'hotfix-*'
-      - 'feature-*'
-    paths-ignore:
-      - '.github/workflows/*'
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Code
         uses: actions/checkout@v7
       - name: Install Node v24
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v7 
         with:
           node-version: '24'
       - name: Install 
         run: npm install
-      - name: Run tests 
-        run: npm  test
+      - name: Build 
+        run: npm run build
+      - name: Deploy 
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
