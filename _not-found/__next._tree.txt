@@ -1,4 +1,4 @@
 :HL["/gh-pages-demo/_next/static/chunks/1_jzgakezrkpd.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"XGDBGrs_NfbpzLy6JA7I4","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"Vd0tbj1Qeg8l2C7akyoag","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
